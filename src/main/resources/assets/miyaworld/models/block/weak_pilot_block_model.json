@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "miyaworld:block/weak_pilot_block_texture"
+  }
+}

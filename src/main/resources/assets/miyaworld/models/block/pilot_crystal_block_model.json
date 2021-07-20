@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "miyaworld:block/pilot_crystal_block_texture"
+  }
+}

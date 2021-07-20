@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "miyaworld:block/metal_wall_core_texture"
+  }
+}
