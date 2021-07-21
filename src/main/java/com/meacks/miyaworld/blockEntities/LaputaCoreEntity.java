@@ -183,9 +183,8 @@ public class LaputaCoreEntity extends TileEntity implements ITickableTileEntity 
                     int range = 5+i*5;
                     BlockPos tempPos = new BlockPos((int)(x+range*Math.sin(j)*Math.cos(k)),
                             (int)(y+range*Math.sin(j)*Math.sin(k)),(int)(z+range*Math.cos(j)));
-                    if(BlockHandler.areSameBlockType(this.level.getBlockState(tempPos).getBlock(),Blocks.GLASS)){
+                    if(BlockHandler.areSameBlockType(this.level.getBlockState(tempPos).getBlock(),BlockHandler.cloudWall)){
                         this.level.setBlockAndUpdate(tempPos,Blocks.AIR.defaultBlockState());
-                        //this.level.setBlockAndUpdate(tempPos,BlockHandler.cloudWall.defaultBlockState());
                         count++;
                         if(count==250){
                             ti1=i;
@@ -220,10 +219,9 @@ public class LaputaCoreEntity extends TileEntity implements ITickableTileEntity 
                 BlockPos tempPos = new BlockPos((int)(x+range*Math.sin(i)*Math.cos(j)),
                         (int)(y+range*Math.sin(i)*Math.sin(j)),(int)(z+range*Math.cos(i)));
                 if(BlockHandler.areSameBlockType(this.level.getBlockState(tempPos).getBlock(),Blocks.AIR)){
-                    this.level.setBlockAndUpdate(tempPos,Blocks.GLASS.defaultBlockState());
-                    //this.level.setBlockAndUpdate(tempPos,BlockHandler.cloudWall.defaultBlockState());
+                    this.level.setBlockAndUpdate(tempPos,BlockHandler.cloudWall.defaultBlockState());
                     countBuild++;
-                    if(countBuild==250){
+                    if(countBuild==100){
                         ti2=i;
                         tj2=j;
                         return;
@@ -231,7 +229,7 @@ public class LaputaCoreEntity extends TileEntity implements ITickableTileEntity 
                 }
                 if(!fastMode){
                     countSearch++;
-                    if(countSearch>40000){
+                    if(countSearch>10000){
                         ti2=i;
                         tj2=j;
                         return;

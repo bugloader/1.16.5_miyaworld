@@ -100,7 +100,8 @@ public class GildedPilotStone extends Item {
                 nbt.putInt("z",(int)playerPos.z);
             } else {
                 BlockPos laputaPos = LaputaCoreEntity.laputaCoreList.get(index);
-                playerEntity.displayClientMessage(new TranslationTextComponent(laputaPos.toShortString()), true);
+                playerEntity.displayClientMessage(new TranslationTextComponent(
+                        laputaPos.getX()+", "+laputaPos.getY()+", "+laputaPos.getZ()), true);
                 nbt.putInt("x",laputaPos.getX());
                 nbt.putInt("y",laputaPos.getY());
                 nbt.putInt("z",laputaPos.getZ());

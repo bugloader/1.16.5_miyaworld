@@ -36,46 +36,52 @@ public class PilotStoneNecklace extends ArmorItem {
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
         CompoundNBT nbt = stack.getTag();
+        assert nbt != null;
         int t0 = nbt.getInt("t0");
         int t1 = nbt.getInt("t1");
         int t2 = nbt.getInt("t2");
         boolean shine = nbt.getBoolean("shine");
-        if(shine&&world.isClientSide){
-            nbt.putInt("t0", ++t0);
-            world.addParticle(ParticleTypes.TOTEM_OF_UNDYING,
-                    player.getX()+random.nextFloat()-0.5, player.getY()+random.nextFloat(),
-                    player.getZ()+random.nextFloat()-0.5, 0, 0, 0);
-            if(t0==80){
-                nbt.putInt("t0",0);
-                world.addParticle(ParticleTypes.FLASH,
-                        player.getX(), player.getY()+0.2, player.getZ(), 0, 0, 0);
-            }
-        }
-        if(!player.isOnGround()) {
-            nbt.putInt("t2",0);
-            if (t1 < 35) {
-                nbt.putInt("t1",t1+1);
-            }else {
-                nbt.putBoolean("shine",true);
-                nbt.putInt("t1",0);
-                List<PlayerEntity> playerEntityList = world.getNearbyPlayers(EntityPredicate.DEFAULT, player,
-                        new AxisAlignedBB(player.getX() - 3, player.getY() - 3, player.getZ() - 3,
-                                player.getX() + 3, player.getY() + 3, player.getZ() + 3));
-                for (PlayerEntity playerEntity : playerEntityList) {
-                    playerEntity.addEffect(new EffectInstance(Effects.SLOW_FALLING, 40));
+
+        if(world.isClientSide){
+            if(shine){
+                if(t0==80){
+                    nbt.putInt("t0",0);
+                    world.addParticle(ParticleTypes.FLASH,
+                            player.getX(), player.getY()+0.2, player.getZ(), 0, 0, 0);
                 }
-                player.addEffect(new EffectInstance(Effects.SLOW_FALLING, 40));
             }
-        }
-        else{
-            nbt.putBoolean("shine",false);
-            nbt.putInt("t0",0);
-            nbt.putInt("t1",0);
-            if(t2<10){
-                nbt.putInt("t2",t2+1);
-            }else{
-                nbt.putInt("t2",0);
-                player.removeEffect(Effects.SLOW_FALLING);
+        }else {
+            if(shine){
+                nbt.putInt("t0", ++t0);
+                world.addParticle(ParticleTypes.TOTEM_OF_UNDYING,
+                        player.getX()+random.nextFloat()-0.5, player.getY()+random.nextFloat(),
+                        player.getZ()+random.nextFloat()-0.5, 0, 0, 0);
+            }
+            if (!player.isOnGround()) {
+                nbt.putInt("t2", 0);
+                if (t1 < 35) {
+                    nbt.putInt("t1", t1 + 1);
+                } else {
+                    nbt.putBoolean("shine", true);
+                    nbt.putInt("t1", 0);
+                    List<PlayerEntity> playerEntityList = world.getNearbyPlayers(EntityPredicate.DEFAULT, player,
+                            new AxisAlignedBB(player.getX() - 3, player.getY() - 3, player.getZ() - 3,
+                                    player.getX() + 3, player.getY() + 3, player.getZ() + 3));
+                    for (PlayerEntity playerEntity : playerEntityList) {
+                        playerEntity.addEffect(new EffectInstance(Effects.SLOW_FALLING, 40));
+                    }
+                    player.addEffect(new EffectInstance(Effects.SLOW_FALLING, 40));
+                }
+            } else {
+                nbt.putBoolean("shine", false);
+                nbt.putInt("t0", 0);
+                nbt.putInt("t1", 0);
+                if (t2 < 10) {
+                    nbt.putInt("t2", t2 + 1);
+                } else {
+                    nbt.putInt("t2", 0);
+                    player.removeEffect(Effects.SLOW_FALLING);
+                }
             }
         }
     }

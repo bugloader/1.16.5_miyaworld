@@ -41,11 +41,12 @@ public class TestingItem extends Item{
             laputaCoreEntity.reachedLevel=LaputaCoreEntity.MAX_RANGE;
         }
 
-        level.addParticle(ParticleTypes.SOUL,position.x,position.y,position.z,0,0,0);
-        usingPlayer.displayClientMessage(new TranslationTextComponent(itemUseContext.getLevel().getBlockState(
-                itemUseContext.getClickedPos()).getBlock().getName().getString()),true);
-        System.out.println(itemUseContext.getLevel().getBlockState(itemUseContext.getClickedPos()).getBlock().getName());
-
+        if(level.isClientSide) {
+            level.addParticle(ParticleTypes.SOUL, position.x, position.y, position.z, 0, 0, 0);
+            usingPlayer.displayClientMessage(new TranslationTextComponent(itemUseContext.getLevel().getBlockState(
+                    itemUseContext.getClickedPos()).getBlock().getName().getString()), true);
+            System.out.println(itemUseContext.getLevel().getBlockState(itemUseContext.getClickedPos()).getBlock().getName());
+        }
         return ActionResultType.PASS;
     }
 }

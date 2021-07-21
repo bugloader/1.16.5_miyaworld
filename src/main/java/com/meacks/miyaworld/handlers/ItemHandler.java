@@ -3,10 +3,7 @@ package com.meacks.miyaworld.handlers;
 import com.meacks.miyaworld.MiyaWorld;
 import com.meacks.miyaworld.entity.GiantRobot;
 import com.meacks.miyaworld.entity.egg.ModdedSpawnEgg;
-import com.meacks.miyaworld.items.BassTube;
-import com.meacks.miyaworld.items.GildedPilotStone;
-import com.meacks.miyaworld.items.PilotStoneNecklace;
-import com.meacks.miyaworld.items.TestingItem;
+import com.meacks.miyaworld.items.*;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.BlockItem;
@@ -25,6 +22,8 @@ public class ItemHandler {
     public static final Item GiantRobotBall = new ModdedSpawnEgg(EntityType.DOLPHIN,
             EntityHandler.GIANT_ROBOT_REGISTRY_OBJECT,0xffffff,0xcccccc,
             new Item.Properties().tab(MiyaWorld.MAGIC_ITEM_GROUP),"giant_robot_ball");
+    public static final Item pistol = new Pistol();
+    public static final Item rocketLauncher = new RocketLauncher();
 
     public static void createBlockItem(Block block, String registryName, ItemGroup tab){
         ItemHandler.ITEMS.add(new BlockItem(block,new Item.Properties().tab(tab)).setRegistryName(registryName));
