@@ -26,6 +26,7 @@ public class Pistol extends Item{
         ItemHandler.ITEMS.add(this);
     }
 
+
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity player, int p_77663_4_, boolean p_77663_5_) {
         if (player instanceof PlayerEntity) {
@@ -65,6 +66,4 @@ public class Pistol extends Item{
         }
         return super.use(world,player,hand);
     }
-
-
 }

@@ -19,7 +19,6 @@ public class ItemHandler {
     public static final Item gildedPilotStone = new GildedPilotStone();
     public static final Item pilotStoneNecklace = new PilotStoneNecklace();
     public static final Item bassTube = new BassTube();
-    public static final Item flute943 = new Flute943();
     public static final Item GiantRobotBall = new ModdedSpawnEgg(EntityType.DOLPHIN,
             EntityHandler.GIANT_ROBOT_REGISTRY_OBJECT,0xffffff,0xcccccc,
             new Item.Properties().tab(MiyaWorld.MAGIC_ITEM_GROUP),"giant_robot_ball");
