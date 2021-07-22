@@ -1,0 +1,32 @@
+{
+  "block.miyaworld.laputa_controller": "Laputa Controller",
+  "block.miyaworld.laputa_core": "Laputa Core",
+  "block.miyaworld.laputa_rune": "Laputa Rune",
+  "block.miyaworld.opened_cloud_wall": "Opened Cloud Wall",
+  "block.miyaworld.opened_metal_wall": "Opened Metal Wall",
+  "block.miyaworld.opened_metal_wall_core": "Opened Cloud Wall Core",
+  "block.miyaworld.cloud_wall": "Cloud Wall",
+  "block.miyaworld.metal_wall":"Metal Wall",
+  "block.miyaworld.metal_wall_core":"Metal Wall Core",
+  "block.miyaworld.pilot_block": "Pilot Block",
+  "block.miyaworld.pilot_crystal_block": "Pilot crystal Block",
+  "block.miyaworld.pilot_ore": "Pilot Ore",
+  "block.miyaworld.solid_metal_wall": "Solid Metal Wall",
+  "block.miyaworld.weak_pilot_block": "Weak Pilot Block",
+
+  "item.miyaworld.bass_tube": "Bass Tube",
+  "item.miyaworld.gilded_pilot_stone": "Gilded Pilot Stone",
+  "item.miyaworld.pilot_stone_necklace": "Pilot Stone Necklace",
+  "item.miyaworld.testing_item": "Rubbish",
+  "item.miyaworld.giant_robot_ball": "Giant Robot Ball",
+  "item.miyaworld.pistol": "Pistol",
+  "item.miyaworld.rocket_launcher": "Rocket Launcher",
+  "item.miyaworld.chicken_egg_sw": "Chicken Egg Sandwich",
+
+  "entity.miyaworld.robot_laser": "Robot Laser",
+  "entity.miyaworld.giant_robot": "Giant Robot",
+
+  "itemGroup.Artifact Item": "Artifact Item",
+  "itemGroup.Magic Block": "Magic Block",
+  "itemGroup.Magic Item": "Magic Item"
+}
