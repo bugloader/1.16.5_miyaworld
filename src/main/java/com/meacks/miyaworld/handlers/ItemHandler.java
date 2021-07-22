@@ -25,6 +25,8 @@ public class ItemHandler {
     public static final Item GiantRobotBall = new ModdedSpawnEgg(EntityType.DOLPHIN,
             EntityHandler.GIANT_ROBOT_REGISTRY_OBJECT,0xffffff,0xcccccc,
             new Item.Properties().tab(MiyaWorld.MAGIC_ITEM_GROUP),"giant_robot_ball");
+    public static final Item pistol = new Pistol();
+    public static final Item rocketLauncher = new RocketLauncher();
 
     public static void createBlockItem(Block block, String registryName, ItemGroup tab){
         ItemHandler.ITEMS.add(new BlockItem(block,new Item.Properties().tab(tab)).setRegistryName(registryName));

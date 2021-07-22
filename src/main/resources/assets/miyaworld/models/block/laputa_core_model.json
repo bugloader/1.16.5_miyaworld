@@ -1,0 +1,5 @@
+{
+  "loader": "forge:obj",
+  "model": "miyaworld:models/obj/crystal.obj",
+  "flip-v": true
+}

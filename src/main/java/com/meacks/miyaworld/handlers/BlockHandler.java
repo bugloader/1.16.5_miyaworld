@@ -51,6 +51,6 @@ public class BlockHandler {
     }
 
     public static boolean areSameBlockType(Block block1,Block block2){
-        return block1.getName().getString().trim().equals(block2.getName().getString().trim());
+        return block1==block2;
     }
 }

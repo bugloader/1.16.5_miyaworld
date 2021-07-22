@@ -1,8 +1,8 @@
 package com.meacks.miyaworld;
 
 import com.meacks.miyaworld.entity.GiantRobot;
-import com.meacks.miyaworld.entity.render.GiantRobotRender;
-import com.meacks.miyaworld.entity.render.RobotLaserRender;
+import com.meacks.miyaworld.entity.RocketEntity;
+import com.meacks.miyaworld.entity.render.*;
 import com.meacks.miyaworld.handlers.*;
 import com.meacks.miyaworld.registry.RegistryGeZi;
 import jdk.jfr.Name;
@@ -140,8 +140,10 @@ public class MiyaWorld
         @SubscribeEvent
         public static void onClientSetUpEvent(FMLClientSetupEvent event) {
             RenderingRegistry.registerEntityRenderingHandler(EntityHandler.GIANT_ROBOT_REGISTRY_OBJECT.get(), GiantRobotRender::new);
+            RenderingRegistry.registerEntityRenderingHandler(EntityHandler.SOUND_ENTITY_REGISTRY_OBJECT.get(), SoundPlayingEntityRender::new);
             RenderingRegistry.registerEntityRenderingHandler(EntityHandler.ROBOT_LASER_REGISTRY_OBJECT.get(), RobotLaserRender::new);
-            System.out.println("yes i am here");
+            RenderingRegistry.registerEntityRenderingHandler(EntityHandler.BULLET_ENTITY_REGISTRY_OBJECT.get(), BulletRender::new);
+            RenderingRegistry.registerEntityRenderingHandler(EntityHandler.ROCKET_ENTITY_REGISTRY_OBJECT.get(), RocketRender::new);
         }
     }
 

@@ -124,20 +124,25 @@ public class LaputaControllerEntity extends TileEntity implements ITickableTileE
 
     public void setRainWeather(){
         assert this.level != null;
-        this.level.setRainLevel(100);
+        if(level.isClientSide) {
+            this.level.setRainLevel(100);
+        }
     }
 
     public void setThunderWeather(){
         assert this.level != null;
-        this.level.setThunderLevel(100);
+        if(level.isClientSide) {
+            this.level.setThunderLevel(100);
+        }
     }
 
-    public void clearWeather(){
+    public void clearWeather() {
         assert this.level != null;
-        this.level.setRainLevel(0);
-        this.level.setThunderLevel(0);
+        if (level.isClientSide) {
+            this.level.setRainLevel(0);
+            this.level.setThunderLevel(0);
+        }
     }
-
     private int findLaputaCoreLevel(){
         int result = 0;
         assert this.level != null;

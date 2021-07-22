@@ -25,7 +25,7 @@ import java.util.Objects;
 public class LaputaCore extends Block {
     public static final String registryName = "laputa_core";
     public LaputaCore(){
-        super(AbstractBlock.Properties.of(Material.STONE));
+        super(AbstractBlock.Properties.of(Material.GLASS).noCollission());
         this.setRegistryName(registryName);
         BlockHandler.BLOCKS.add(this);
         ItemHandler.createBlockItem(this,registryName,MiyaWorld.MAGIC_Block_GROUP);
@@ -51,6 +51,7 @@ public class LaputaCore extends Block {
             assert laputaCoreEntity != null;
             if (Objects.requireNonNull(player).isShiftKeyDown()){
                 laputaCoreEntity.decreaseRange();
+                player.sendMessage(new TranslationTextComponent("Shield level decreased to 0."),player.getUUID());
             }else{
                     int result = laputaCoreEntity.increaseRange();
                     switch (result){
