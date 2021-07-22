@@ -34,7 +34,7 @@ public class GildedPilotStone extends Item {
         if(!world.isClientSide){
             if (Objects.requireNonNull(player).isShiftKeyDown()){
                 laputaCoreEntity.barutsu();
-                player.sendMessage(new TranslationTextComponent("Do you know what バルス means?"), player.getUUID());
+                player.sendMessage(new TranslationTextComponent("Do you know what バルス 3dmeans?"), player.getUUID());
                 player.displayClientMessage(new TranslationTextComponent(
                         "バルス".charAt(laputaCoreEntity.n-1)+""),true);
             }else{
