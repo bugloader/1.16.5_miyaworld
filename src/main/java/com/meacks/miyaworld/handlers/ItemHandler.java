@@ -9,6 +9,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import org.lwjgl.system.CallbackI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,7 @@ public class ItemHandler {
             new Item.Properties().tab(MiyaWorld.MAGIC_ITEM_GROUP),"giant_robot_ball");
     public static final Item pistol = new Pistol();
     public static final Item rocketLauncher = new RocketLauncher();
+    public static final Item fruit943 = new Flute943();
 
     public static void createBlockItem(Block block, String registryName, ItemGroup tab){
         ItemHandler.ITEMS.add(new BlockItem(block,new Item.Properties().tab(tab)).setRegistryName(registryName));

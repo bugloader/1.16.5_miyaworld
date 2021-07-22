@@ -16,7 +16,7 @@ public class Flute943 extends Item{
 
     public Flute943(){
         super(new Properties().tab(MiyaWorld.ARTIFACT_ITEM_GROUP));
-        this.setRegistryName("flute");
+        this.setRegistryName("flute943");
         ItemHandler.ITEMS.add(this);
     }
     private static final float[] frequency = {0.41f,0.43f,0.49f,0.55f,0.62f,0.65f,0.73f,0.82f
