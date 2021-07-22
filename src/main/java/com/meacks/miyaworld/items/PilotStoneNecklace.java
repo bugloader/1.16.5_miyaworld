@@ -59,7 +59,7 @@ public class PilotStoneNecklace extends ArmorItem {
             }
             if (!player.isOnGround()) {
                 nbt.putInt("t2", 0);
-                if (t1 < 35) {
+                if (t1 < 30) {
                     nbt.putInt("t1", t1 + 1);
                 } else {
                     nbt.putBoolean("shine", true);
