@@ -62,12 +62,14 @@ public class PilotOreEntity extends TileEntity implements ITickableTileEntity {
                         (playerEntity.inventory.contains(ItemHandler.pilotStoneNecklace.getDefaultInstance()) ||
                                 playerEntity.inventory.contains(ItemHandler.gildedPilotStone.getDefaultInstance()))) {
                     hasPlayer = true;
-                    if (i++ == 20) {
-                        Random random = new Random();
-                        level.addParticle(ParticleTypes.TOTEM_OF_UNDYING,
-                                player.getX() + random.nextFloat() - 0.5, player.getY() + random.nextFloat(),
-                                player.getZ() + random.nextFloat() - 0.5, 0, 0, 0);
-                        i=0;
+                    if(level.isClientSide) {
+                        if (i++ == 20) {
+                            Random random = new Random();
+                            level.addParticle(ParticleTypes.TOTEM_OF_UNDYING,
+                                    player.getX() + random.nextFloat() - 0.5, player.getY() + random.nextFloat(),
+                                    player.getZ() + random.nextFloat() - 0.5, 0, 0, 0);
+                            i = 0;
+                        }
                     }
                 }
             }
