@@ -12,6 +12,7 @@ import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
@@ -284,6 +285,7 @@ public class LaputaCoreEntity extends TileEntity implements ITickableTileEntity 
         }else {
             assert this.level != null;
             this.level.setBlockAndUpdate(this.getBlockPos(), Blocks.AIR.defaultBlockState());
+            this.level.explode(null, this.getBlockPos().getX(), this.getBlockPos().getY(), this.getBlockPos().getZ(), 1F, false, Explosion.Mode.NONE);
         }
     }
 

@@ -22,11 +22,9 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class GiantRobotRender extends MobRenderer<GiantRobot, GiantRobotModel<GiantRobot>> {
-    private final EntityModel<GiantRobot> robotEntityModel;
 
     public GiantRobotRender(EntityRendererManager rendererManager) {
         super(rendererManager,new GiantRobotModel<>(),0.7F);
-        robotEntityModel = new IronGolemModel<>();
     }
 
     @Override

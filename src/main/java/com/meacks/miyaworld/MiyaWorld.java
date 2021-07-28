@@ -75,6 +75,7 @@ public class MiyaWorld
         bus.addListener(this::doClientStuff);
 
         RegistryGeZi.register(bus);
+        BlockHandler.BLOCK_DEFERRED_REGISTER.register(bus);
         EntityHandler.ENTITY_TYPE_DEFERRED_REGISTER.register(bus);
         TileEntityHandler.TILE_ENTITY_TYPE_DEFERRED_REGISTER.register(bus);
 

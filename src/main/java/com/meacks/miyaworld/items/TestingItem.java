@@ -21,7 +21,7 @@ public class TestingItem extends Item{
 
 
     public TestingItem(){
-        super(new Properties().tab(MiyaWorld.MAGIC_ITEM_GROUP));
+        super(new Properties().tab(MiyaWorld.MAGIC_ITEM_GROUP).stacksTo(1));
         this.setRegistryName("testing_item");
         ItemHandler.ITEMS.add(this);
     }

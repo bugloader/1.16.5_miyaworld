@@ -15,7 +15,8 @@ public class OreHandler{
 
     public static void generateOres(final BiomeLoadingEvent event){
             oreGenerate(event.getGeneration(),OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-                    BlockHandler.pilotOre.defaultBlockState(), 20,5,20,1);
+                    BlockHandler.PILOT_ORE_REGISTRY_OBJECT.get().defaultBlockState(),
+                    20,5,20,1);
     }
 
     private static void oreGenerate(BiomeGenerationSettingsBuilder settingsBuilder, RuleTest fillerType,

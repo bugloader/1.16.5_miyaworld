@@ -24,7 +24,9 @@ import javax.annotation.Nullable;
 public class LaputaController extends Block {
     public static final String registryName = "laputa_controller";
     public LaputaController(){
-        super(Properties.of(Material.GLASS).noCollission());
+        super(Properties.of(Material.GLASS).noOcclusion().isValidSpawn(BlockHandler::never)
+                .isRedstoneConductor(BlockHandler::never).isSuffocating(BlockHandler::never)
+                .isViewBlocking(BlockHandler::never));
         this.setRegistryName(registryName);
         BlockHandler.BLOCKS.add(this);
         ItemHandler.createBlockItem(this,registryName, MiyaWorld.MAGIC_Block_GROUP);

@@ -19,6 +19,9 @@ public class TileEntityHandler {
     public static final TileEntityType<LaputaCoreEntity> LAPUTA_CORE_TILE_ENTITY_TYPE =
             sampleRegistry(LaputaCore.registryName,LaputaCoreEntity::new,BlockHandler.laputaCore);
 
+    public static final TileEntityType<PilotOreEntity> PILOT_ORE_TILE_ENTITY_TYPE =
+            sampleRegistry(PilotOre.registryName,PilotOreEntity::new,BlockHandler.pilotOre);
+
     public static final TileEntityType<LaputaControllerEntity> LAPUTA_CONTROLLER_TILE_ENTITY_TYPE =
             sampleRegistry(LaputaController.registryName, LaputaControllerEntity::new,BlockHandler.laputaController);
 

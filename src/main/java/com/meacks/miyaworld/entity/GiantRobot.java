@@ -8,6 +8,7 @@ import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.controller.FlyingMovementController;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.boss.WitherEntity;
+import net.minecraft.entity.item.ItemFrameEntity;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.passive.IFlyingAnimal;
 import net.minecraft.entity.passive.IronGolemEntity;

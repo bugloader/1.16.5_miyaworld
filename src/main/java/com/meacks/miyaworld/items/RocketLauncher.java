@@ -19,7 +19,7 @@ public class RocketLauncher extends Item{
     public static final int COOLING_DOWN_TIME = 60;
 
     public RocketLauncher(){
-        super(new Properties().tab(MiyaWorld.ARTIFACT_ITEM_GROUP));
+        super(new Properties().tab(MiyaWorld.ARTIFACT_ITEM_GROUP).stacksTo(1));
         this.setRegistryName("rocket_launcher");
         ItemHandler.ITEMS.add(this);
     }

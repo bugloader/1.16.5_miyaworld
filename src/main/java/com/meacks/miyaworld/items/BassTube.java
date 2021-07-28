@@ -32,7 +32,7 @@ public class BassTube extends Item{
 
 
     public BassTube(){
-        super(new Properties().tab(MiyaWorld.ARTIFACT_ITEM_GROUP));
+        super(new Properties().tab(MiyaWorld.ARTIFACT_ITEM_GROUP).stacksTo(1));
         this.setRegistryName("bass_tube");
         ItemHandler.ITEMS.add(this);
     }

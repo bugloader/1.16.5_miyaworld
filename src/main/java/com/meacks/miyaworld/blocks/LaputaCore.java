@@ -8,6 +8,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -25,11 +26,16 @@ import java.util.Objects;
 public class LaputaCore extends Block {
     public static final String registryName = "laputa_core";
     public LaputaCore(){
-        super(AbstractBlock.Properties.of(Material.GLASS).noCollission());
+        super(AbstractBlock.Properties.of(Material.GLASS).noOcclusion().isValidSpawn(BlockHandler::never)
+                .isRedstoneConductor(BlockHandler::never).isSuffocating(BlockHandler::never)
+                .isViewBlocking(BlockHandler::never).lightLevel((x) -> {
+            return 15;
+        }));
         this.setRegistryName(registryName);
         BlockHandler.BLOCKS.add(this);
         ItemHandler.createBlockItem(this,registryName,MiyaWorld.MAGIC_Block_GROUP);
     }
+
 
 
     @Override
@@ -37,7 +43,6 @@ public class LaputaCore extends Block {
         return true;
     }
 
-    @Nullable
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
         return new LaputaCoreEntity();

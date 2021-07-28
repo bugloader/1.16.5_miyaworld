@@ -10,7 +10,9 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class EntityHandler {
-    public static final DeferredRegister<EntityType<?>> ENTITY_TYPE_DEFERRED_REGISTER = DeferredRegister.create(ForgeRegistries.ENTITIES, MiyaWorld.MODID);
+    public static final DeferredRegister<EntityType<?>> ENTITY_TYPE_DEFERRED_REGISTER =
+            DeferredRegister.create(ForgeRegistries.ENTITIES, MiyaWorld.MODID);
+
     public static final RegistryObject<EntityType<GiantRobot>> GIANT_ROBOT_REGISTRY_OBJECT =
             ENTITY_TYPE_DEFERRED_REGISTER.register("giant_robot", () -> EntityType.Builder.of(GiantRobot::new,
                     EntityClassification.MISC).sized(1f, 2.5f).build("giant_robot"));

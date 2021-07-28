@@ -1,5 +1,23 @@
 {
   "variants": {
-    "": { "model": "miyaworld:block/pilot_ore_model" }
+    "activated=0": { "model": "miyaworld:block/pilot_ore_model" },
+    "activated=1": { "model": "miyaworld:block/pilot_ore_model" },
+    "activated=2": { "model": "miyaworld:block/pilot_ore_model" },
+    "activated=3": { "model": "miyaworld:block/pilot_ore_model1" },
+    "activated=4": { "model": "miyaworld:block/pilot_ore_model1" },
+    "activated=5": { "model": "miyaworld:block/pilot_ore_model1" },
+    "activated=6": { "model": "miyaworld:block/pilot_ore_model2" },
+    "activated=7": { "model": "miyaworld:block/pilot_ore_model2" },
+    "activated=8": { "model": "miyaworld:block/pilot_ore_model2" },
+    "activated=9": { "model": "miyaworld:block/pilot_ore_model3" },
+    "activated=10": { "model": "miyaworld:block/pilot_ore_model3" },
+    "activated=11": { "model": "miyaworld:block/pilot_ore_model3" },
+    "activated=12": { "model": "miyaworld:block/pilot_ore_model4" },
+    "activated=13": { "model": "miyaworld:block/pilot_ore_model4" },
+    "activated=14": { "model": "miyaworld:block/pilot_ore_model4" },
+    "activated=15": { "model": "miyaworld:block/pilot_ore_model5" },
+    "activated=16": { "model": "miyaworld:block/pilot_ore_model5" },
+    "activated=17": { "model": "miyaworld:block/pilot_ore_model5" },
+    "activated=18": { "model": "miyaworld:block/pilot_ore_model6" }
   }
 }

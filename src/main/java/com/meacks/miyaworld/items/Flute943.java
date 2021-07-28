@@ -15,7 +15,7 @@ public class Flute943 extends Item{
 
 
     public Flute943(){
-        super(new Properties().tab(MiyaWorld.ARTIFACT_ITEM_GROUP));
+        super(new Properties().tab(MiyaWorld.ARTIFACT_ITEM_GROUP).stacksTo(1));
         this.setRegistryName("flute943");
         ItemHandler.ITEMS.add(this);
     }
