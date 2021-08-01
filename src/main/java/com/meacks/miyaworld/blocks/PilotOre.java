@@ -46,16 +46,6 @@ public class PilotOre extends Block {
 
 
     @Override
-    public boolean hasTileEntity(BlockState state) {
-        return true;
-    }
-
-    @Override
-    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return new PilotOreEntity();
-    }
-
-    @Override
     public void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> state) {
         state.add(STATE);
         super.createBlockStateDefinition(state);

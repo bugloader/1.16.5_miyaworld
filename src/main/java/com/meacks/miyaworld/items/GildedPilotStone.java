@@ -3,9 +3,12 @@ package com.meacks.miyaworld.items;
 import com.meacks.miyaworld.MiyaWorld;
 import com.meacks.miyaworld.blockEntities.LaputaControllerEntity;
 import com.meacks.miyaworld.blockEntities.LaputaCoreEntity;
+import com.meacks.miyaworld.blockEntities.PilotOreEntity;
+import com.meacks.miyaworld.blocks.PilotOre;
 import com.meacks.miyaworld.handlers.BlockHandler;
 import com.meacks.miyaworld.handlers.ItemHandler;
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.nbt.CompoundNBT;
@@ -19,6 +22,7 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class GildedPilotStone extends Item {
@@ -34,7 +38,8 @@ public class GildedPilotStone extends Item {
         if(!world.isClientSide){
             if (Objects.requireNonNull(player).isShiftKeyDown()){
                 laputaCoreEntity.barutsu();
-                player.sendMessage(new TranslationTextComponent("Do you know what バルス means?"), player.getUUID());
+                player.sendMessage(new TranslationTextComponent("Do you know what バルス " +
+                        "means?"), player.getUUID());
                 player.displayClientMessage(new TranslationTextComponent(
                         "バルス".charAt(laputaCoreEntity.n-1)+""),true);
             }else{

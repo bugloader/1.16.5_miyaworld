@@ -1,5 +1,7 @@
 package com.meacks.miyaworld;
 
+import com.meacks.miyaworld.blockEntities.PilotOreEntity;
+import com.meacks.miyaworld.blocks.PilotOre;
 import com.meacks.miyaworld.entity.GiantRobot;
 import com.meacks.miyaworld.entity.RocketEntity;
 import com.meacks.miyaworld.entity.render.*;
@@ -9,14 +11,18 @@ import jdk.jfr.Name;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.entity.IronGolemRenderer;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.particles.ParticleTypes;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -32,6 +38,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Random;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -148,12 +155,78 @@ public class MiyaWorld
         }
     }
 
+
+    @SubscribeEvent
+    public void onTick(TickEvent.PlayerTickEvent event) {
+        PlayerEntity entity = event.player;
+        BlockPos playerBlockPos = entity.blockPosition();
+
+        if (entity.inventory.contains(ItemHandler.pilotStoneNecklace.getDefaultInstance()) ||
+                entity.inventory.contains(ItemHandler.gildedPilotStone.getDefaultInstance())) {
+            if (event.player.level.isClientSide) {
+                Random random = new Random();
+                if(random.nextFloat()<0.05) {
+                    entity.level.addParticle(ParticleTypes.TOTEM_OF_UNDYING,
+                            entity.getX() + random.nextFloat() - 0.5,
+                            entity.getY() + random.nextFloat(),
+                            entity.getZ() + random.nextFloat() - 0.5,
+                            0, 0, 0);
+                }
+            } else {
+                for (int i = -9; i < 9; i++) {
+                    for (int j = -9; j < 9; j++) {
+                        for (int k = -9; k < 9; k++) {
+                            BlockPos tempPos = new BlockPos(playerBlockPos.getX() + i,
+                                    playerBlockPos.getY() + j, playerBlockPos.getZ() + k);
+                            Block tempBlock = entity.level.getBlockState(tempPos).getBlock();
+                            if (tempBlock instanceof PilotOre) {
+                                int n = entity.level.getBlockState(tempPos).getValue(PilotOre.STATE);
+                                if (entity.position().distanceToSqr(tempPos.getX(), tempPos.getY(), tempPos.getZ()) < 36) {
+                                    if (n < 18) {
+                                        assert entity.level != null;
+                                        entity.level.setBlock(tempPos, entity.level.getBlockState(tempPos)
+                                                .setValue(PilotOre.STATE, n + 1), 3);
+                                    }
+                                } else if (n > 0) {
+                                    assert entity.level != null;
+                                    entity.level.setBlock(tempPos, entity.level.getBlockState(tempPos)
+                                            .setValue(PilotOre.STATE, n - 1), 3);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            for (int i = -9; i < 9; i++) {
+                for (int j = -9; j < 9; j++) {
+                    for (int k = -9; k < 9; k++) {
+                        BlockPos tempPos = new BlockPos(playerBlockPos.getX() + i,
+                                playerBlockPos.getY() + j, playerBlockPos.getZ() + k);
+                        Block tempBlock = entity.level.getBlockState(tempPos).getBlock();
+                        if (tempBlock instanceof PilotOre) {
+                            int n = entity.level.getBlockState(tempPos).getValue(PilotOre.STATE);
+                            if (n > 0) {
+                                assert entity.level != null;
+                                entity.level.setBlock(tempPos, entity.level.getBlockState(tempPos)
+                                        .setValue(PilotOre.STATE, n - 1), 3);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class CommonEventHandler {
         @SubscribeEvent
         public static void onCommonSetup(FMLCommonSetupEvent event) {
 
         }
+
+
     }
+
 
 }
