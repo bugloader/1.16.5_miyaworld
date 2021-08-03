@@ -1,0 +1,31 @@
+{
+  "block.miyaworld.laputa_controller": "拉普達控製器",
+  "block.miyaworld.laputa_core": "拉普達核心",
+  "block.miyaworld.laputa_rune": "拉普達符文",
+  "block.miyaworld.opened_cloud_wall": "打開的雲墻",
+  "block.miyaworld.opened_metal_wall": "打開的金屬的墻",
+  "block.miyaworld.opened_metal_wall_core": "打開的金屬的墻核的心",
+  "block.miyaworld.cloud_wall": "雲墻",
+  "block.miyaworld.metal_wall":"金屬的墻",
+  "block.miyaworld.metal_wall_core":"金屬的墻的核心",
+  "block.miyaworld.pilot_block": "飛行的方塊",
+  "block.miyaworld.pilot_crystal_block": "飛行的水晶塊",
+  "block.miyaworld.pilot_ore": "飛行的礦物質",
+  "block.miyaworld.solid_metal_wall": "固態金屬的墻",
+  "block.miyaworld.weak_pilot_block": "弱的飛行的方塊",
+
+  "item.miyaworld.bass_tube": "低音管子",
+  "item.miyaworld.gilded_pilot_stone": "鍍金先導石",
+  "item.miyaworld.pilot_stone_necklace": "飛行石頭項鏈",
+  "item.miyaworld.testing_item": "調戲物品",
+  "item.miyaworld.giant_robot_ball": "大機器人的蛋",
+  "item.miyaworld.pistol": "手槍",
+  "item.miyaworld.rocket_launcher": "火箭炮",
+  "item.miyaworld.chicken_egg_sw": "雞蛋三明治",
+  "entity.miyaworld.robot_laser": "機器人的激光",
+  "entity.miyaworld.giant_robot": "大的機器人",
+
+  "itemGroup.Artifact Item": "神器物品",
+  "itemGroup.Magic Block": "神奇的方塊",
+  "itemGroup.Magic Item": "神奇的物品"
+}
