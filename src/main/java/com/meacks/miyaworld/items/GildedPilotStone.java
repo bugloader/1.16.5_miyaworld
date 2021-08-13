@@ -24,12 +24,56 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Random;
 
 public class GildedPilotStone extends Item {
     public GildedPilotStone(){
         super(new Properties().tab(MiyaWorld.MAGIC_ITEM_GROUP).stacksTo(1));
         this.setRegistryName("gilded_pilot_stone");
         ItemHandler.ITEMS.add(this);
+    }
+
+    public static void checkOre(PlayerEntity entity,BlockPos playerBlockPos, World level){
+            if (level.isClientSide) {
+                Random random = new Random();
+                if(random.nextFloat()<0.05) {
+                    entity.level.addParticle(ParticleTypes.TOTEM_OF_UNDYING,
+                            entity.getX() + random.nextFloat() - 0.5,
+                            entity.getY() + random.nextFloat(),
+                            entity.getZ() + random.nextFloat() - 0.5,
+                            0, 0, 0);
+                }
+            } else {
+                for (int i = -9; i < 9; i++) {
+                    for (int j = -9; j < 9; j++) {
+                        for (int k = -9; k < 9; k++) {
+                            BlockPos tempPos = new BlockPos(playerBlockPos.getX() + i,
+                                    playerBlockPos.getY() + j, playerBlockPos.getZ() + k);
+                            Block tempBlock = entity.level.getBlockState(tempPos).getBlock();
+                            if (tempBlock instanceof PilotOre) {
+                                int n = entity.level.getBlockState(tempPos).getValue(PilotOre.STATE);
+                                if (entity.position().distanceToSqr(tempPos.getX(), tempPos.getY(), tempPos.getZ()) < 36) {
+                                    if (n < 18) {
+                                        assert entity.level != null;
+                                        entity.level.setBlock(tempPos, entity.level.getBlockState(tempPos)
+                                                .setValue(PilotOre.STATE, n + 1), 3);
+                                    }
+                                } else if (n > 0) {
+                                    assert entity.level != null;
+                                    entity.level.setBlock(tempPos, entity.level.getBlockState(tempPos)
+                                            .setValue(PilotOre.STATE, n - 1), 3);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+    }
+
+    public void inventoryTick(ItemStack p_77663_1_, World p_77663_2_, Entity p_77663_3_, int p_77663_4_, boolean p_77663_5_) {
+        if(p_77663_3_ instanceof PlayerEntity) {
+            checkOre((PlayerEntity) p_77663_3_, p_77663_3_.blockPosition(), p_77663_2_);
+        }
     }
 
     public static void configLaputaCore(World world,BlockPos blockPos,PlayerEntity player){

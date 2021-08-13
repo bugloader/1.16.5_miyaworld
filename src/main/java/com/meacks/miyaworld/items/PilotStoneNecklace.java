@@ -5,6 +5,7 @@ import com.meacks.miyaworld.blockEntities.LaputaCoreEntity;
 import com.meacks.miyaworld.handlers.BlockHandler;
 import com.meacks.miyaworld.handlers.ItemHandler;
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityPredicate;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -24,6 +25,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.List;
+
+import static com.meacks.miyaworld.items.GildedPilotStone.checkOre;
 
 
 public class PilotStoneNecklace extends ArmorItem {
@@ -83,6 +86,12 @@ public class PilotStoneNecklace extends ArmorItem {
                     player.removeEffect(Effects.SLOW_FALLING);
                 }
             }
+        }
+    }
+
+    public void inventoryTick(ItemStack p_77663_1_, World p_77663_2_, Entity p_77663_3_, int p_77663_4_, boolean p_77663_5_) {
+        if(p_77663_3_ instanceof PlayerEntity) {
+            checkOre((PlayerEntity) p_77663_3_, p_77663_3_.blockPosition(), p_77663_2_);
         }
     }
 

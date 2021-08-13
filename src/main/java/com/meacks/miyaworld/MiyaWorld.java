@@ -155,7 +155,7 @@ public class MiyaWorld
         }
     }
 
-
+/*
     @SubscribeEvent
     public void onTick(TickEvent.PlayerTickEvent event) {
         PlayerEntity entity = event.player;
@@ -217,6 +217,7 @@ public class MiyaWorld
             }
         }
     }
+ */
 
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class CommonEventHandler {
